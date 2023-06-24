@@ -12,7 +12,8 @@ public class SquareEquation
         {
             throw new System.ArgumentException();
         }
-        else if (Math.Abs(d) < eps)
+        // else if (Math.Abs(d) < eps)
+        else if (d > -eps && d <= eps)
         {
             double xFirst = -b / (2 * a);
             return new double[1] {xFirst};
