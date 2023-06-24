@@ -12,17 +12,14 @@ public class SquareEquation
         {
             throw new System.ArgumentException();
         }
+        else if (Math.Abs(d) < eps)
+        {
+            double xFirst = -b / 2;
+            return new double[1] {xFirst};
+        }
         else if (d < 0)
         {
-            if (Math.Abs(d) < eps)
-            {
-                double xFirst = -b / 2;
-                return new double[1] {xFirst};
-            }
-            else
-            {
-                return Array.Empty<double>();
-            }
+            return Array.Empty<double>();
         }
         else
         {
