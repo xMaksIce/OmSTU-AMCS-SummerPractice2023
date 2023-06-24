@@ -14,6 +14,7 @@ public class SquareEquation
             double x_first = -(b + Math.Sign(b) * Math.Sqrt(d)) / 2;
             double x_second = c / x_first;
             return new Double[2]{x_first, x_second};
+            //pepega
         }
         throw new NotImplementedException();
         // ATTENTION!!
