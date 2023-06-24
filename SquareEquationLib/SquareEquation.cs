@@ -13,11 +13,11 @@ public class SquareEquation
         {
             throw new System.ArgumentException();
         }
-        else if (Math.Abs(d) < eps) // 1 тест
+        /*else if (Math.Abs(d) < eps) // 1 тест
         {
             double xFirst = -b / 2;
             return new double[1] {xFirst};
-        }
+        }*/
         else if (d < 0) // 1 тест
         {
             return Array.Empty<double>();
