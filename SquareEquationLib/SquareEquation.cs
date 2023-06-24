@@ -15,6 +15,7 @@ public class SquareEquation
         }
         else if (d > -eps && d < 0)
         {
+            d = 0;
             double xFirst = -(b + Math.Sign(b) * Math.Sqrt(d)) / (2 * a);
             double xSecond = c / xFirst;
             return new Double[2]{xFirst, xSecond};
