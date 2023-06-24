@@ -26,7 +26,7 @@ public class SquareEquation
         }
         else
         {
-            double xFirst = -(b + Math.Sign(b) * Math.Sqrt(d)) / 2;
+            double xFirst = -(b + Math.Sign(b) * Math.Sqrt(d)) / (2 * a);
             double xSecond = c / xFirst;
             return new Double[2]{xFirst, xSecond};
         }
