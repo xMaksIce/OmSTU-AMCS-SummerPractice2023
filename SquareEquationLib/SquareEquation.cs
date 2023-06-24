@@ -4,7 +4,7 @@ public class SquareEquation
 {
     public static double[] Solve(double a, double b, double c)
     {
-        double eps = Double.Epsilon;
+        double eps = Math.Pow(10, -9);
         double d = Math.Pow(b, 2) - 4 * a * c;
         if (a == 0 || a == double.NaN || a == double.PositiveInfinity || a == double.NegativeInfinity
             || b == double.NaN || b == double.PositiveInfinity || b == double.NegativeInfinity
