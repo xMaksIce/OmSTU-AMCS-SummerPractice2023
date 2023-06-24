@@ -4,8 +4,9 @@ public class SquareEquation
 {
     public static double[] Solve(double a, double b, double c)
     {
-        double eps = Double.Epsilon;
-        if (a == 0)
+        // double eps = Double.Epsilon;
+        if (a == 0 || a == double.NaN || a == double.PositiveInfinity || a == double.NegativeInfinity
+            || b == double.NaN || b == double.PositiveInfinity || b == double.NegativeInfinity)
         {
             throw new System.ArgumentException();
         }
@@ -15,9 +16,6 @@ public class SquareEquation
             double xFirst = -(b + Math.Sign(b) * Math.Sqrt(d)) / 2;
             double xSecond = c / xFirst;
             return new Double[2]{xFirst, xSecond};
-            //pepega
         }
-        throw new NotImplementedException();
-        // ATTENTION!!
     }
 }
