@@ -19,11 +19,11 @@ public class SquareEquation
         }
         else if (d < 0)
         {
+            return new double[1] {228}; // debug
             return Array.Empty<double>();
         }
         else
         {
-            return Array.Empty<double>(); // debug
             double xFirst = -(b + Math.Sign(b) * Math.Sqrt(d)) / (2 * a);
             double xSecond = c / xFirst;
             return new Double[2]{xFirst, xSecond};
