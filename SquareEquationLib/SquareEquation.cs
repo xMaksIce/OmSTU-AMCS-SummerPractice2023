@@ -6,7 +6,8 @@ public class SquareEquation
     {
         // double eps = Double.Epsilon;
         if (a == 0 || a == double.NaN || a == double.PositiveInfinity || a == double.NegativeInfinity
-            || b == double.NaN || b == double.PositiveInfinity || b == double.NegativeInfinity)
+            || b == double.NaN || b == double.PositiveInfinity || b == double.NegativeInfinity
+            || c == double.NaN || c == double.PositiveInfinity || c == double.NegativeInfinity)
         {
             throw new System.ArgumentException();
         }
