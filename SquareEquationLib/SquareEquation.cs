@@ -14,15 +14,15 @@ public class SquareEquation
         }
         else if (Math.Abs(d) < eps)
         {
+            return Array.Empty<double>(); // debug
             double xFirst = -b / (2 * a);
             return new double[1] {xFirst};
         }
-        else if (d < 0)
+        else if (d < 0) // 1 тест
         {
-            return new double[1] {228}; // debug
             return Array.Empty<double>();
         }
-        else
+        else // 2 теста
         {
             double xFirst = -(b + Math.Sign(b) * Math.Sqrt(d)) / (2 * a);
             double xSecond = c / xFirst;
