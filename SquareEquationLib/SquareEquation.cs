@@ -10,11 +10,11 @@ public class SquareEquation
             || b == double.NaN || b == double.PositiveInfinity || b == double.NegativeInfinity
             || c == double.NaN || c == double.PositiveInfinity || c == double.NegativeInfinity)
         {
-            throw new System.ArgumentException();
-        }
-        else if (Math.Abs(d) < eps)
-        {
             return Array.Empty<double>(); // debug
+            // throw new System.ArgumentException();
+        }
+        else if (Math.Abs(d) < eps) // 1 тест
+        {
             double xFirst = -b / (2 * a);
             return new double[1] {xFirst};
         }
