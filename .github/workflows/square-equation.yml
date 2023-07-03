@@ -22,10 +22,5 @@ jobs:
       - name: Build
         run: dotnet build SquareEquationLib --no-restore /p:ContinuousIntegrationBuild=true
       
-      - name: BDDTest
-        run: dotnet test --collect:"XPlat Code Coverage" --results-directory ./coverage
-      
-      - name: Code Coverage Summary Report
-        uses: irongut/CodeCoverageSummary@v1.3.0
-        with:
-          filename: coverage/**/coverage.cobertura.xml
+      - name: BDDTest 
+        run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura

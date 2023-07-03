@@ -18,7 +18,9 @@ public class SquareEquation
             return new double[1]{xFirst};
         }
         else if (d > 0)
-        {
+        { 
+            // код решателя уравнений был изменён четыре коммита назад,
+            // чтобы добавить проверку коэффициента b на равенство нулю
             if (Math.Abs(b) > eps)
             {
                 double xFirst = -(b + Math.Sign(b) * Math.Sqrt(d)) / (2 * a);
