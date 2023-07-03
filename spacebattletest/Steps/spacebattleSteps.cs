@@ -1,58 +1,68 @@
+using System;
 using TechTalk.SpecFlow;
+using Xunit;
+using spacebattleLib;
 
-namespace spacebattletest.Steps
+namespace spacebattletest.Steps;
+
+[Binding]
+public sealed class SpacebattleStepDefinitions
 {
-    [Binding]
-    public sealed class CalculatorStepDefinitions
+    private double[] shipCords = new double[2];
+    private double[] speedCords = new double[2];
+    private bool movementPossibility = true;
+    private double[] result = new double[2];
+    private double[] answer = new double[2];
+    private Exception catchedException = new(); 
+
+    [Given(@"космический корабль находится в точке пространства с координатами \((.*), (.*)\)")]
+    public void Даны_координаты_корабля(double firstCord, double secondCord)
     {
-       
-       // For additional details on SpecFlow step definitions see https://go.specflow.org/doc-stepdef
+        shipCords = new double[] {firstCord, secondCord};
+    }
+    [Given("космический корабль, положение в пространстве которого невозможно определить")]
+    public void Невозможно_определить_координаты_корабля()
+    {
+        shipCords = new double[] {double.NaN, double.NaN};
+    }
+    [Given(@"имеет мгновенную скорость \((.*), (.*)\)")]
+    public void Даны_значения_скорости(double firstCord, double secondCord)
+    {
+        speedCords = new double[] {firstCord, secondCord};
+    }
+    [Given("скорость корабля определить невозможно")]
+    public void Невозожно_определить_скорость_корабля()
+    {
+        speedCords = new double[] {double.NaN, double.NaN};
+    }
+    [Given("изменить положение в пространстве космического корабля невозможно")]
+    public void Изменить_положение_невозможно()
+    {
+        movementPossibility = false;
+    }
 
-       private readonly ScenarioContext _scenarioContext;
-
-       public CalculatorStepDefinitions(ScenarioContext scenarioContext)
-       {
-           _scenarioContext = scenarioContext;
-       }
-
-       [Given("the first number is (.*)")]
-       public void GivenTheFirstNumberIs(int number)
-       {
-           //TODO: implement arrange (precondition) logic
-           // For storing and retrieving scenario-specific data see https://go.specflow.org/doc-sharingdata
-           // To use the multiline text or the table argument of the scenario,
-           // additional string/Table parameters can be defined on the step definition
-           // method. 
-
-           _scenarioContext.Pending();
-       }
-
-       [Given("the second number is (.*)")]
-       public void GivenTheSecondNumberIs(int number)
-       {
-           //TODO: implement arrange (precondition) logic
-           // For storing and retrieving scenario-specific data see https://go.specflow.org/doc-sharingdata
-           // To use the multiline text or the table argument of the scenario,
-           // additional string/Table parameters can be defined on the step definition
-           // method. 
-
-           _scenarioContext.Pending();
+    [When("происходит прямолинейное равномерное движение без деформации")]
+    public void Когда_происходит_прямолинейное_движение_без_деформации()
+    {
+        try 
+        {
+            result = Spacebattle.Move(shipCords, speedCords, movementPossibility);
         }
-        
-       [When("the two numbers are added")]
-       public void WhenTheTwoNumbersAreAdded()
-       {
-           //TODO: implement act (action) logic
+        catch (Exception exc)
+        {
+            catchedException = exc;
+        }
+    }
 
-           _scenarioContext.Pending();
-       }
-
-       [Then("the result should be (.*)")]
-       public void ThenTheResultShouldBe(int result)
-       {
-           //TODO: implement assert (verification) logic
-
-           _scenarioContext.Pending();
-       }
+    [Then(@"космический корабль перемещается в точку пространства с координатами \((.*), (.*)\)")]
+    public void Корабль_перемещается_в_точку(double firstCord, double secondCord)
+    {
+        answer = new double[] {firstCord, secondCord};
+        Assert.Equal(answer, result);
+    }
+    [Then("возникает ошибка Exception")]
+    public void Возникает_ошибка_Exception()
+    {
+        Assert.ThrowsAsync<Exception>(() => throw catchedException);
     }
 }

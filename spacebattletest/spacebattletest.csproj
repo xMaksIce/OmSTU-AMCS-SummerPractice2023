@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\spacebattle\spacebattle.csproj" />
+    <ProjectReference Include="..\spacebattleLib\spacebattleLib.csproj" />
   </ItemGroup>
 
 </Project>
