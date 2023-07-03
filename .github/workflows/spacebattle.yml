@@ -17,10 +17,10 @@ jobs:
           dotnet-version: 7.0.x
 
       - name: Restore dependencies
-        run: dotnet restore spacebattle
+        run: dotnet restore spacebattleLib
 
       - name: Build
-        run: dotnet build spacebattle --no-restore /p:ContinuousIntegrationBuild=true
+        run: dotnet build spacebattleLib --no-restore /p:ContinuousIntegrationBuild=true
       
       - name: spacebattletest
         run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura
