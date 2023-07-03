@@ -2,7 +2,7 @@ name: square equation test
 
 on:
   push:
-    branches: ["xTests"]
+    branches: ["BDDTests"]
 
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
       - name: Build
         run: dotnet build SquareEquationLib --no-restore /p:ContinuousIntegrationBuild=true
       
-      - name: MyXUnitTest
+      - name: BDDTest
         run: dotnet test --collect:"XPlat Code Coverage" --results-directory ./coverage
       
       - name: Code Coverage Summary Report

@@ -19,9 +19,18 @@ public class SquareEquation
         }
         else if (d > 0)
         {
-            double xFirst = -(b + Math.Sign(b) * Math.Sqrt(d)) / (2 * a);
-            double xSecond = c / xFirst;
-            return new Double[2]{xFirst, xSecond};
+            if (Math.Abs(b) > eps)
+            {
+                double xFirst = -(b + Math.Sign(b) * Math.Sqrt(d)) / (2 * a);
+                double xSecond = c / xFirst;
+                return new Double[2]{xFirst, xSecond};
+            }
+            else
+            {
+                double xFirst = Math.Sqrt(-4 * a * c) / (2 * a);
+                double xSecond = -xFirst;
+                return new Double[2]{xFirst, xSecond};
+            }
         }
         else
         {
