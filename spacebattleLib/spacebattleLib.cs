@@ -1,22 +1,19 @@
 ﻿namespace spacebattleLib;
-public class Spacebattle
+public class Spaceship
 {
-    public static double[] Move(double[] shipCords, double[] speedCords, bool movementIsPossible)
+    public static double[] Move(double[] position, double[] speed, bool movementPossibility)
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < position.Count(); i++)
         {
-            if (shipCords[i] == double.PositiveInfinity || speedCords[i] == double.PositiveInfinity || 
-                shipCords[i] == double.NegativeInfinity || speedCords[i] == double.NegativeInfinity ||
-                shipCords[i] == double.NaN || speedCords[i] == double.NaN ||
-                !movementIsPossible)
-                {
-                    throw new Exception();
-                }
+            if (double.IsNaN(position[i]) || double.IsNaN(speed[i]) || !movementPossibility)
+            {
+                throw new Exception();
+            }
         }
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < position.Count(); i++)
         {
-            shipCords[i] += speedCords[i];
+            position[i] += speed[i];
         }
-        return shipCords;
+        return position;
     }
 }
