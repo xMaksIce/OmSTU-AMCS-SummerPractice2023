@@ -1,8 +1,8 @@
-name: spacebattletest
+name: spacebattleplus
 
 on:
   push:
-    branches: ["spacebattle"]
+    branches: ["spacebattleplus"]
 
 jobs:
   build:
