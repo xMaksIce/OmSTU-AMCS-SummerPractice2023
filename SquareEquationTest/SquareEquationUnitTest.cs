@@ -8,14 +8,15 @@ namespace XUnit.Coverlet.MSBuild
             Assert.Throws<ArgumentException>(() => SquareEquation.Solve(a, b, c));
 
         [Theory]
-        [InlineData(double.NegativeInfinity, double.PositiveInfinity, double.NegativeInfinity),
+        [InlineData(double.NegativeInfinity, double.NegativeInfinity, double.NegativeInfinity),
+         InlineDate(double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity),
          InlineData(double.NaN, double.NaN, double.NaN)]
-        public void coeffsIsNotNumbers_ThrowArgumentExc(double a, double b, double c) =>
+        public void coeffsAreNotNumbers_ThrowArgumentExc(double a, double b, double c) =>
             Assert.Throws<ArgumentException>(() => SquareEquation.Solve(a, b, c));
         
         [Theory]
         [InlineData(1, 2, 1)]
-        public void oneRoot_rootIsEqual(double a, double b, double c)
+        public void oneRoot_rootAreEqual(double a, double b, double c)
         {
             double[] result = SquareEquation.Solve(a, b, c);
             double[] answer = {-1};
@@ -24,9 +25,10 @@ namespace XUnit.Coverlet.MSBuild
 
         [Theory]
         [InlineData(1, 4, 3)]
-        public void twoRoots_rootsIsEqual(double a, double b, double c)
+        public void twoRoots_rootsAreEqual(double a, double b, double c)
         {
             double[] result = SquareEquation.Solve(a, b, c);
+            Array.Sort(result);
             double[] answer = {-3, -1};
             Assert.Equal(answer, result);
         }
