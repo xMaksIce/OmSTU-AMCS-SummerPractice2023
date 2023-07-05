@@ -11,10 +11,7 @@ public class SquareEquation
         {
             throw new System.ArgumentException();
         }
-        else
-        {
-            double d = Math.Pow(b, 2) - 4 * a * c;
-        }
+        double d = Math.Pow(b, 2) - 4 * a * c;
         if (Math.Abs(d) < eps)
         {
             double xFirst = -b / (2 * a);
