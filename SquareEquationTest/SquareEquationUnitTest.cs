@@ -9,7 +9,7 @@ namespace XUnit.Coverlet.MSBuild
 
         [Theory]
         [InlineData(double.NegativeInfinity, double.NegativeInfinity, double.NegativeInfinity),
-         InlineDate(double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity),
+         InlineData(double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity),
          InlineData(double.NaN, double.NaN, double.NaN)]
         public void coeffsAreNotNumbers_ThrowArgumentExc(double a, double b, double c) =>
             Assert.Throws<ArgumentException>(() => SquareEquation.Solve(a, b, c));
